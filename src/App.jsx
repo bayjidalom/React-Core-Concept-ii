@@ -1,12 +1,35 @@
-
 import './App.css'
 import Counter from './Counter'
 import Card from './Card'
 import Batsman from './Batsman'
 import Users from './Users'
 import CounterTwo from './Counter-ii'
+import { Suspense } from 'react'
+import Friends from './Friends'
+import Posts from './Posts'
+
+
+const fetchUsers = fetch('https://jsonplaceholder.typicode.com/users')
+  .then(res => res.json())
+
+
+const fetchFriends = async() =>{
+  const res = await fetch("https://jsonplaceholder.typicode.com/users")
+  return res.json();
+}
+
+
+const fetchPosts = async() =>{
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+  return res.json();
+}
+
+
 
 function App() {
+
+  const friendsPromise = fetchFriends();
+  const postsPromise = fetchPosts();
 
   const handle = () => {
     alert("Button 1 Clicked")
@@ -36,7 +59,17 @@ function App() {
 
       <CounterTwo></CounterTwo>
 
-      <Users></Users>
+      <Suspense fallback={<h4>Posts are coming...</h4>}>
+        <Posts postsPromise={postsPromise}></Posts>
+      </Suspense>
+
+     <Suspense fallback={<h3>Loading....</h3>}>
+       <Users fetchUsers={fetchUsers}></Users>
+     </Suspense>
+
+     <Suspense fallback={<h3>Friends are coming......</h3>}>
+      <Friends friendsPromise={friendsPromise}></Friends>
+     </Suspense>
 
 
       <Batsman></Batsman>
@@ -53,7 +86,7 @@ function App() {
       <button onClick={handle5}>Button 5</button>
       <br />
 
-      <Card name='Bayjid Alom' tech='Web'></Card>
+      <Card name='Bayjid Alom' tech='CST'></Card>
     </>
   )
 }
