@@ -4,6 +4,7 @@ import Counter from './Counter'
 import Card from './Card'
 import Batsman from './Batsman'
 import Users from './Users'
+import CounterTwo from './Counter-ii'
 
 function App() {
 
@@ -21,6 +22,10 @@ function App() {
 
   }
 
+  const handle5 = () => {
+    alert("Clicked button 5")
+  }
+
 
 
 
@@ -29,20 +34,24 @@ function App() {
     <>
       <h2>Explore React Core Concepts</h2>
 
+      <CounterTwo></CounterTwo>
+
       <Users></Users>
-      
+
 
       <Batsman></Batsman>
       <Counter></Counter>
 
-
+      <br />
       <button onClick={handle}>Button 1</button>
-      <br />
+
       <button onClick={handleClick}>Button 2</button>
-      <br />
+
       <button onClick={() => alert("Button 3 Clicked")}>Button 3</button>
-      <br />
+
       <button onClick={() => handleAdd5(10)}>Button 4</button>
+      <button onClick={handle5}>Button 5</button>
+      <br />
 
       <Card name='Bayjid Alom' tech='Web'></Card>
     </>

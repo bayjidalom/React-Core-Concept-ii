@@ -39,11 +39,11 @@ export default function Batsman() {
         <div style={style}>
             <p><small>Sixes: {sixes}</small></p>
             <p><small>Fours: {fours}</small></p>
-            <h3>Player: Bangla Batsman</h3>
+            <h3>Player : Glean Maxwell</h3>
             {
-                runs > 50 && <p>Scored:50</p>
+                runs > 50 && <p> Scored : 50</p>
             }
-            <h2>Score: {runs}</h2>
+            <h2>Score : {runs}</h2>
             <button style={style} onClick={handle1}>Singles</button>
 
             <button style={style} onClick={handle4}>Fours</button>
