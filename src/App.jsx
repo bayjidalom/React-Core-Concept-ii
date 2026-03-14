@@ -3,6 +3,7 @@ import './App.css'
 import Counter from './Counter'
 import Card from './Card'
 import Batsman from './Batsman'
+import Users from './Users'
 
 function App() {
 
@@ -27,6 +28,9 @@ function App() {
   return (
     <>
       <h2>Explore React Core Concepts</h2>
+
+      <Users></Users>
+      
 
       <Batsman></Batsman>
       <Counter></Counter>
