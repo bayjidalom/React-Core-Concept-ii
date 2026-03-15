@@ -7,6 +7,8 @@ import CounterTwo from './Counter-ii'
 import { Suspense } from 'react'
 import Friends from './Friends'
 import Posts from './Posts'
+import Comments from './Comments'
+import Counterthree from './Counter-iii'
 
 
 const fetchUsers = fetch('https://jsonplaceholder.typicode.com/users')
@@ -24,12 +26,18 @@ const fetchPosts = async() =>{
   return res.json();
 }
 
+const fetchComments = async()=>{
+  const res = await fetch('https://jsonplaceholder.typicode.com/comments')
+  return res.json()
+}
+
 
 
 function App() {
 
   const friendsPromise = fetchFriends();
   const postsPromise = fetchPosts();
+  const commentsPromise = fetchComments();
 
   const handle = () => {
     alert("Button 1 Clicked")
@@ -58,6 +66,11 @@ function App() {
       <h2>Explore React Core Concepts</h2>
 
       <CounterTwo></CounterTwo>
+      <Counterthree></Counterthree>
+
+      <Suspense fallback={<h2>Comments Loading...🔃</h2>}>
+        <Comments commentsPromise={commentsPromise}></Comments>
+      </Suspense>
 
       <Suspense fallback={<h4>Posts are coming...</h4>}>
         <Posts postsPromise={postsPromise}></Posts>

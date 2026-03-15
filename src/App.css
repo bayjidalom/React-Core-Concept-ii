@@ -58,3 +58,20 @@
   padding: 20px;
   margin-bottom: 20px;
 }
+
+
+.comments{
+   border: 2px solid gold;
+  border-radius: 17px;
+  padding: 6px;
+  margin-bottom: 20px;
+  background-color: rgb(28, 17, 70);
+}
+
+.box{
+   border: 2px solid white;
+  border-radius: 17px;
+  padding: 4px;
+  margin: 5px;
+ margin-bottom: 15px;
+}
